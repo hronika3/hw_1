@@ -9,7 +9,7 @@ function getDayDeclension(day) {
     else {
         declension = 'Дней'
     }
-    console.log(declension);
+    return declension;
 }
 
-getDayDeclension(111);
+getDayDeclension(0);
