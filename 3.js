@@ -1,28 +1,30 @@
 function getSeason(mounth) {
+    var name = 'noun';
     switch (mounth){
         case 1:
         case 2:
-            console.log('Winter');
+            name = 'Winter';
             break;
         case 3:
         case 4:
         case 5:
-            console.log('Spring');
+            name = 'Spring';
             break;
         case 6:
         case 7:
         case 8:
-            console.log('Summer');
+            name = 'Summer';
             break;
         case 9:
         case 10:
         case 11:
-            console.log('Autumn');
+            name = 'Autumn';
             break;
         case 12:
-            console.log('Winter');
+            name = 'Winter';
             break;
     }
+    return name;
 }
 
 getSeason(3);
