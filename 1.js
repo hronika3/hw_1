@@ -1,12 +1,12 @@
 function isTimeValid(hour, minute) {
-    if(hour > 24 || hour < 0){
+    if(hour > 23 || hour < 0){
         return false;
     }
-    if(minute > 60 || minute < 0){
+    else if(minute > 59 || minute < 0){
         return false;
 
     }
     return true;
 }
 
-isTimeValid(3,35);
+isTimeValid(24,5);
