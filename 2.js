@@ -1,6 +1,6 @@
 function addMinutes(hour, minute, increase) {
     var time;
-    while((minute + increase) > 60){
+    while((minute + increase) > 59){
         hour++;
         minute -= 60;
     }
