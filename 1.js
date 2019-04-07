@@ -4,6 +4,7 @@ function isTimeValid(hour, minute) {
     }
     if(minute > 59 || minute < 0){
         return false;
+
     }
     return true;
 }
