@@ -5,7 +5,7 @@ function addMinutes(hour, minute, increase) {
         minute -= 60;
     }
     minute += increase;
-    while(hour > 24){
+    while(hour > 23){
         hour -= 24;
     }
     if(hour < 10) {
