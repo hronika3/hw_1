@@ -17,4 +17,4 @@ function addMinutes(hour, minute, increase) {
     time = String(hour) + ':' + String(minute);
     return time;
 }
-console.log(addMinutes(3,35,10));
+addMinutes(3,35,10);
