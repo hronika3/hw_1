@@ -101,16 +101,14 @@ module.exports = {
         }
         else if(string[0] === 'SHOW'){
             if(phoneBook.length === 0){}
-            else{
-                phoneBook.sort();
-                if(l === 0){
-                    console.log(phoneBook);}
-                else{
-                    l = phoneBook.length - 1;
-                    console.log(phoneBook.splice(0,l));
-                }
-            }
-
+        else{
+            
+                console.log(phoneBook.filter(function(item, i, arr){
+          if(phoneBook[i].length > 1){
+            return phoneBook[i];
+          }
+        }).sort());
+        }
         }
         else{
             return undefined;
