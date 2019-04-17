@@ -1,7 +1,7 @@
 //Подсказка: сюда можно складывать записи адресной книги.
 var phoneBook = [];
 var k = 0;
-var l = 0;
+
 //Здесь можно объявить переменные и функции, которые понядобятся вам для работы ваших функций
 
 module.exports = {
@@ -94,23 +94,20 @@ module.exports = {
 
                 if(str[1]===' '){
                     delete phoneBook[i];
-                    l = 1;
                 }
             }
 
         }
         else if(string[0] === 'SHOW'){
             if(phoneBook.length === 0){}
-            else{
-                phoneBook.sort();
-                if(l === 0){
-                    console.log(phoneBook);}
-                else{
-                    l = phoneBook.length - 1;
-                    console.log(phoneBook.splice(0,l));
-                }
-            }
-
+        else{
+            
+                console.log(phoneBook.filter(function(item, i, arr){
+          if(phoneBook[i].length > 1){
+            return phoneBook[i];
+          }
+        }).sort());
+        }
         }
         else{
             return undefined;
