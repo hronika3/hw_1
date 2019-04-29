@@ -1,0 +1,66 @@
+function query(collection) {
+
+}
+
+function select() {
+
+}
+
+function filterIn(property, values) {
+
+}
+
+module.exports = {
+  var date =new Date('2017-05-16 13:45');
+    timeShift: function(time) {
+    return {
+        date: new Date(Date.parse(time)),
+        add: function (number, command) {
+            switch(command){
+                case 'hours':
+                    date.setHours(date.getHours() + number);
+                    break;
+                case 'mounth':
+                    date.setMonth(date.getMonth() + number);
+                    break;
+                case 'days':
+                    date.setDate(date.getDate() + number);
+                    break;
+                case 'minutes':
+                    date.setMinutes(date.getMinutes() + number);
+                    break;
+                case 'year':
+                    date.setMonth(date.getMonth() + 12*number);
+                    break;
+            }
+            return date;
+
+        },
+
+        subtrack: function (number, command) {
+            switch(command){
+                case 'hours':
+                    date.setHours(date.getHours() - number);
+                    break;
+                case 'mounth':
+                    date.setMonth(date.getMonth() - number);
+                    break;
+                case 'days':
+                    date.setDate(date.getDate() - number);
+                    break;
+                case 'minutes':
+                    date.setMinutes(date.getMinutes() - number);
+                    break;
+                case 'year':
+                    date.setMonth(date.getMonth() - 12*number);
+                    break;
+            }
+            return date;
+        }
+    }},
+    lib: {
+        query: query,
+        select: select,
+        filterIn: filterIn
+    }    
+};
