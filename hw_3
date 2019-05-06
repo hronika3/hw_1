@@ -1,0 +1,106 @@
+function query(collection) {
+for(var i = 0; i < this.filter_arguments.length; i++){
+        if(collection[0].hasOwnProperty(this.filter_arguments[i].property)){
+            var temp = [];
+            for(var k=0; k < collection.length; k++){
+                if(this.filter_arguments[i].values.indexOf(collection[k][this.filter_arguments[i].property]) != -1){
+                    temp.push(collection[k]);
+                }
+            }
+            collection = temp;
+        }
+    }
+
+    var copy = [];
+    for(var i = 0; i<collection.length; i++){
+        copy.push({});
+    }
+    for(var i = 0; i<this.select_arguments.length; i++){
+        if(collection[0].hasOwnProperty(this.select_arguments[i])){
+            for(var k = 0; k < collection.length; k++){
+                copy[k][this.select_arguments[i]] = collection[k][this.select_arguments[i]];
+            }
+        }
+    }
+    
+    if(this.select_arguments.length == 0){
+      copy = collection;
+    }
+
+    this.select_arguments = [];
+    this.filter_arguments = [];
+    return copy;
+}
+
+function select() {
+for(var i = 0; i < arguments.length; i++){
+        this.select_arguments.push(arguments[i]);
+    }
+}
+
+function filterIn(property, values) {
+var obj = {
+        property: '',
+        values: []
+    };
+    obj.property = arguments[0];
+    obj.values = arguments[1];
+    this.filter_arguments.push(obj);
+}
+
+module.exports = {
+  var date =new Date('2017-05-16 13:45');
+    timeShift: function(time) {
+    return {
+        date: new Date(Date.parse(time)),
+        add: function (number, command) {
+            switch(command){
+                case 'hours':
+                    date.setHours(date.getHours() + number);
+                    break;
+                case 'mounth':
+                    date.setMonth(date.getMonth() + number);
+                    break;
+                case 'days':
+                    date.setDate(date.getDate() + number);
+                    break;
+                case 'minutes':
+                    date.setMinutes(date.getMinutes() + number);
+                    break;
+                case 'year':
+                    date.setMonth(date.getMonth() + 12*number);
+                    break;
+            }
+            return date;
+
+        },
+
+        subtrack: function (number, command) {
+            switch(command){
+                case 'hours':
+                    date.setHours(date.getHours() - number);
+                    break;
+                case 'mounth':
+                    date.setMonth(date.getMonth() - number);
+                    break;
+                case 'days':
+                    date.setDate(date.getDate() - number);
+                    break;
+                case 'minutes':
+                    date.setMinutes(date.getMinutes() - number);
+                    break;
+                case 'year':
+                    date.setMonth(date.getMonth() - 12*number);
+                    break;
+            }
+            return date;
+        }
+    }},
+    lib: {
+        select_arguments: [],
+        filter_arguments: [],
+        query: query,
+        select: select,
+        filterIn: filterIn
+    }    
+};
