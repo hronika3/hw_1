@@ -1,0 +1,48 @@
+function Collection(){
+    this.collection = [];
+    for(var i = 0; i < arguments.length; i++){
+            this.collection = this.collection.concat(arguments[i]);
+    }
+}
+Collection.from = function (){
+    var k = new Collection();
+    for(var i = 0; i < arguments.length; i++){
+        k.append(arguments[i]);
+    }
+    return k;
+};
+Collection.prototype.values = function () {
+    return this.collection;
+};
+Collection.prototype.append = function () {
+    for(var i = 0; i < arguments.length; i++){
+        if(arguments[i] instanceof Collection)
+            this.collection = this.collection.concat(arguments[i].values());
+        else
+            this.collection = this.collection.concat(arguments[i]);
+    }
+};
+Collection.prototype.at = function (pos) {
+  if(pos < 1 || pos > this.collection.length){
+    return null;
+  }
+    return this.collection[pos - 1];
+};
+Collection.prototype.removeAt = function (pos) {
+    if (pos > this.collection.length || pos < 1){
+        return false;
+    }
+    else {
+        var tempcollection = [];
+        for(var i = 0; i < this.collection.length; i++){
+            if(i != pos - 1){
+                tempcollection.push(this.collection[i]);
+            }
+        }
+        this.collection = tempcollection;
+        return true;
+    }
+};
+Collection.prototype.count = function () {
+    return this.collection.length;
+};
