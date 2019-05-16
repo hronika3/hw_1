@@ -71,7 +71,7 @@ module.exports = {
                     date.setMonth(date.getMonth() + 12*number);
                     break;
             }
-            return date;
+            return this;
 
         },
 
@@ -93,7 +93,7 @@ module.exports = {
                     date.setMonth(date.getMonth() - 12*number);
                     break;
             }
-            return date;
+            return this;
         }
     }},
     lib: {
